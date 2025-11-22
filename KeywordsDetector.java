@@ -46,6 +46,10 @@ public class KeywordsDetector {
         }
         return doesContain;
     }
+    public static String lowerCase(String str) {
+        String lower = str.toLowerCase();
+        return lower;
+    }
 
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
@@ -55,9 +59,9 @@ public class KeywordsDetector {
         String str1;
         String str2;
         for (; i < sentences.length; i++) {
-             str1 = sentences[i];
+             str1 = lowerCase(sentences[i]);
             for (; z < keywords.length; z++) {
-                str2 = keywords[z];
+                str2 = lowerCase(keywords[z]);
                 if (contains(str1, str2)==true) {
                     System.out.println(sentences[i]);
                     z=0;
