@@ -20,6 +20,32 @@ public class KeywordsDetector {
         detectAndPrint(sentences, keywords);
 
     }
+    public static boolean contains(String str1, String str2) {
+        boolean doesContain = false;
+        int count = 0;
+        int i;
+        int z =0;
+        for (i = 0 ; i<str2.length();i++){
+            
+            for(;z<str1.length();z++){
+               //System.out.println("char i ="+str2.charAt(i)+ " char z ="+str1.charAt(z)+" count ="+count+" z="+z);
+                if (str2.charAt(i)==str1.charAt(z)){
+                    count ++;
+                    z++;
+                    break;
+                }
+               else if ( (str2.charAt(i)!=str1.charAt(z))){
+                    count =0;
+                    i=0;
+                    
+               }
+            }
+        }
+        if (count==str2.length()){
+            return true;
+        }
+        return doesContain;
+    }
 
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
@@ -32,7 +58,7 @@ public class KeywordsDetector {
              str1 = sentences[i];
             for (; z < keywords.length; z++) {
                 str2 = keywords[z];
-                if (MyString.contains(str1, str2)==true) {
+                if (contains(str1, str2)==true) {
                     System.out.println(sentences[i]);
                     z=0;
                     break;
