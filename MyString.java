@@ -26,15 +26,24 @@ public class MyString {
     public static boolean contains(String str1, String str2) {
         boolean doesContain = false;
         int count = 0;
-        for (int i = 0 ; i<str2.length();i++){
-            for(int z = 0;z<str1.length();z++){
+        int i;
+        int z =0;
+        for (i = 0 ; i<str2.length();i++){
+            
+            for(;z<str1.length();z++){
+               //System.out.println("char i ="+str2.charAt(i)+ " char z ="+str1.charAt(z)+" count ="+count+" z="+z);
                 if (str2.charAt(i)==str1.charAt(z)){
                     count ++;
+                    z++;
                     break;
                 }
+               else if ( (str2.charAt(i)!=str1.charAt(z))){
+                    count =0;
+                    i=0;
+                    
+               }
             }
         }
-        
         if (count==str2.length()){
             return true;
         }
